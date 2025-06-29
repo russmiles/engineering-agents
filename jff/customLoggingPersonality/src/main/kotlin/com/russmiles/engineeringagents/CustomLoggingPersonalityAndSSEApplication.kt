@@ -8,8 +8,8 @@ import org.springframework.boot.runApplication
 @SpringBootApplication
 @EnableAgentShell
 @EnableAgents(loggingTheme = "lebowski")
-class CustomLoggingPersonalityAndSSEApplication
+class CustomLoggingPersonality
 
 fun main(args: Array<String>) {
-    runApplication<CustomLoggingPersonalityAndSSEApplication>(*args)
+    runApplication<CustomLoggingPersonality>(*args)
 }
