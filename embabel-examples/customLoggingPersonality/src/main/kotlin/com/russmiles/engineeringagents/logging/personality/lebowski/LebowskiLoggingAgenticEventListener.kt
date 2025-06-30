@@ -33,7 +33,7 @@ val CompletionMessages = listOf(
     "S$*t the f$*k up, Donny"
 )
 
-fun highlight(text: String) = "<$text>".color(LebowskiColorPalette.KNITWEAR)
+fun highlight(text: String) = "<$text>"
 
 /**
  * The AI Abides, man. This is just a Big Lebowski themed logging implementation

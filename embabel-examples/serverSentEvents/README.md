@@ -11,8 +11,7 @@
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 ![IntelliJ IDEA](https://img.shields.io/badge/IntelliJIDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white)
 
-# Just-For-Fun (JFF) Example: Providing a Custom Logging Personality
-### _The Serious Bit (TSB): Exploring SSE from an Embabel deployment_
+# Embabel Example: Exploring seeing Server Sent Events (SSE) from an Embabel Agent
 
 ## Overview
 
@@ -36,11 +35,7 @@ In this example we leverage the simply, template example agent, `WriteAndReviewA
 This agent uses one LLM with a high temperature and creative persona to write a story based on your input,
 then another LLM with a low temperature and different persona to review the story.
 
-When the Embabel shell comes up, you can use the story agent with the `execute`, or shorter `x`, command:
-
-```
-x "Tell me a story about...[your topic]"
-```
+Once the application is running then visit `http://localhost:8080" to then click a link to trigger the agent. The instructions to follow the server sent events is described in the accompanying article as it requires a little coordination with a debugger to intercept the running agent while the events are being emitted.
 
 ## Provenance
 
@@ -50,6 +45,5 @@ using [uv](https://pypi.org/project/uvx/) installed with Homebrew:
 ```bash
 brew install uv
 ```
+
 <img src="https://github.com/embabel/embabel-agent/blob/main/embabel-agent-api/images/315px-Meister_der_Weltenchronik_001.jpg?raw=true" width="180">
-
-
