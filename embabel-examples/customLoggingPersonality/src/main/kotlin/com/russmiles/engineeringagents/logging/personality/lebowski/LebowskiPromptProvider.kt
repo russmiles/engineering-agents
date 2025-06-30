@@ -8,7 +8,7 @@ import com.embabel.common.util.italic
 import org.springframework.context.annotation.Profile
 import org.springframework.stereotype.Component
 
-fun guide(text: String) = "${" Scene ".bold()} ${text.italic().color(LebowskiColorPalette.TOWEL_YELLOW)}"
+fun guide(text: String) = "${" Scene ".bold()} ${text.italic()}"
 
 val SceneLocations = listOf(
     "The Dude’s Apartment",
@@ -25,7 +25,7 @@ val SceneLocations = listOf(
 @Component
 @Profile("lebowski")
 class LebowskiPromptProvider : MessageGeneratorPromptProvider(
-    color = LebowskiColorPalette.TOWEL_YELLOW,
+    color = LebowskiColorPalette.KNITWEAR,
     prompt = SceneLocations.random(),
     messageGenerator = RandomFromFileMessageGenerator(
         url = "logging/lebowski.txt"

@@ -7,11 +7,10 @@ import org.springframework.stereotype.Component
 @Component
 @Profile("lebowski")
 object LebowskiColorPalette : ColorPalette {
-    const val KNITWEAR: Int = 0xD2B48C // Guide text green
-    const val TOWEL_YELLOW: Int = 0xffe066
+    const val KNITWEAR: Int = 0xD2B48C
 
     override val highlight: Int
         get() = KNITWEAR
     override val color2: Int
-        get() = TOWEL_YELLOW
+        get() = KNITWEAR
 }

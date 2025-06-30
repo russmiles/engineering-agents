@@ -33,8 +33,6 @@ val CompletionMessages = listOf(
     "S$*t the f$*k up, Donny"
 )
 
-fun highlight(text: String) = "<$text>"
-
 /**
  * The AI Abides, man. This is just a Big Lebowski themed logging implementation
  */
@@ -96,7 +94,7 @@ The AI Abides...
 ) {
 
     override fun getAgentDeploymentEventMessage(e: AgentDeploymentEvent): String =
-        "${highlight("New s&%t has come to light")}: " +
+        "New s&%t has come to light: " +
                 "Agent ${e.agent.name} has been deployed to Venice bungalow at 606 Venezia Avenue, Venice, CA\n\tdescription: ${e.agent.description}"
 
     override fun getRankingChoiceRequestEventMessage(e: RankingChoiceRequestEvent<*>): String =
@@ -112,10 +110,10 @@ The AI Abides...
         )
 
     override fun getRankingChoiceNotMadeEventMessage(e: RankingChoiceCouldNotBeMadeEvent<*>): String =
-        "${highlight("Calmer than you")}: Failed to choose ${e.type.simpleName} based on ${e.basis}. Choices: ${e.rankings.infoString()}. Confidence cutoff: ${e.confidenceCutOff}"
+        "Calmer than you: Failed to choose ${e.type.simpleName} based on ${e.basis}. Choices: ${e.rankings.infoString()}. Confidence cutoff: ${e.confidenceCutOff}"
 
     override fun getDynamicAgentCreationMessage(e: DynamicAgentCreationEvent): String =
-        "${highlight("New s&%t has come to light")}: Created agent ${e.agent.infoString()}"
+        "New s&%t has come to light: Created agent ${e.agent.infoString()}"
 
     override fun getAgentProcessCreationEventMessage(e: AgentProcessCreationEvent): String =
         guide(
@@ -126,12 +124,10 @@ The AI Abides...
         )
 
     override fun getAgentProcessReadyToPlanEventMessage(e: AgentProcessReadyToPlanEvent): String =
-        "[${e.processId}] ${highlight("Lotta moving parts")} ready to translate from ${e.worldState.infoString(verbose = e.agentProcess.processContext.processOptions.verbosity.showLongPlans)}"
+        "[${e.processId}] Lotta moving parts: ready to translate from ${e.worldState.infoString(verbose = e.agentProcess.processContext.processOptions.verbosity.showLongPlans)}"
 
     override fun getAgentProcessPlanFormulatedEventMessage(e: AgentProcessPlanFormulatedEvent): String =
-        "[${e.processId}] ${highlight("That's, like, your opinion, man")}: formulated plan ${e.plan.infoString(verbose = e.agentProcess.processContext.processOptions.verbosity.showLongPlans)} from ${e.worldState.infoString()}".color(
-            LebowskiColorPalette.TOWEL_YELLOW
-        )
+        "[${e.processId}] That's, like, your opinion, man: formulated plan ${e.plan.infoString(verbose = e.agentProcess.processContext.processOptions.verbosity.showLongPlans)} from ${e.worldState.infoString()}"
 
     override fun getProcessCompletionMessage(e: AgentProcessFinishedEvent): String =
         """
@@ -142,7 +138,7 @@ The AI Abides...
         """.trimIndent()
 
     override fun getProcessFailureMessage(e: AgentProcessFinishedEvent): String =
-        "[${e.processId}] ${highlight("Do you have to use so many cuss words?")}: process failed catastrophically"
+        "[${e.processId}] Do you have to use so many cuss words?: process failed catastrophically"
 
     override fun getEarlyTerminationMessage(e: EarlyTermination): String =
         """
@@ -157,13 +153,13 @@ The AI Abides...
         "[${e.processId}] Object bound to the moving parts: ${e.name}:${if (e.agentProcess.processContext.processOptions.verbosity.debug) e.value else e.value::class.java.simpleName}"
 
     override fun getToolCallRequestEventMessage(e: ToolCallRequestEvent): String =
-        "[${e.processId}] ${highlight("Lotta moving parts")}: (${e.action?.shortName()}) calling tool ${e.tool}(${e.toolInput})"
+        "[${e.processId}] Lotta moving parts: (${e.action?.shortName()}) calling tool ${e.tool}(${e.toolInput})"
 
     override fun getToolCallSuccessResponseEventMessage(e: ToolCallResponseEvent, resultToShow: String): String =
-        "[${e.processId}] ${highlight("New s&%t has come to light")}: (${e.action?.shortName()}) tool ${e.tool} returned $resultToShow in ${e.runningTime.toMillis()}ms with payload ${e.toolInput}"
+        "[${e.processId}] New s&%t has come to light: (${e.action?.shortName()}) tool ${e.tool} returned $resultToShow in ${e.runningTime.toMillis()}ms with payload ${e.toolInput}"
 
     override fun getToolCallFailureResponseEventMessage(e: ToolCallResponseEvent, throwable: Throwable?): String =
-        "[${e.processId}] ${highlight("Do you have to use so many cuss words?")}: (${e.action?.shortName()}) tool ${e.tool} failed $throwable in ${e.runningTime.toMillis()}ms with payload ${e.toolInput}"
+        "[${e.processId}] Do you have to use so many cuss words?: (${e.action?.shortName()}) tool ${e.tool} failed $throwable in ${e.runningTime.toMillis()}ms with payload ${e.toolInput}"
 
     override fun getLlmRequestEventMessage(e: LlmRequestEvent<*>): String =
         "[${e.processId}] 🧠 Lotta moving parts: calculating LLM ${e.llm.name} to transform ${e.interaction.id.value} from ${e.outputClass.simpleName} -> ${e.interaction.llm} using ${e.interaction.toolCallbacks.joinToString { it.toolDefinition.name() }}"
@@ -175,11 +171,11 @@ The AI Abides...
         """.trimIndent()
 
     override fun getActionExecutionStartMessage(e: ActionExecutionStartEvent): String =
-        "[${e.processId}] ${highlight("New s&%t has come to light")}: executing action ${e.action.name}"
+        "[${e.processId}] New s&%t has come to light: executing action ${e.action.name}"
 
     override fun getActionExecutionResultMessage(e: ActionExecutionResultEvent): String =
-        "[${e.processId}] ${highlight("New s&%t has come to light")}: completed action ${e.action.name} in ${e.actionStatus.runningTime}"
+        "[${e.processId}] New s&%t has come to light: completed action ${e.action.name} in ${e.actionStatus.runningTime}"
 
     override fun getProgressUpdateEventMessage(e: ProgressUpdateEvent): String =
-        "[${e.processId}] Progress: ${e.createProgressBar(length = 50).color(LebowskiColorPalette.TOWEL_YELLOW)}"
+        "[${e.processId}] Progress: ${e.createProgressBar(length = 50)}"
 }
