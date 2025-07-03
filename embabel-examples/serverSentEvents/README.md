@@ -15,7 +15,7 @@
 
 ## Overview
 
-TBD
+Provides a walkthrough of exploring Server Sent Events from an Embabel runtime.
 
 ## Prerequisites
 

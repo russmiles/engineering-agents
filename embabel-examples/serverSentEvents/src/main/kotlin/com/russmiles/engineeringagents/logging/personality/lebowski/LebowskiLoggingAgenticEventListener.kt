@@ -159,20 +159,8 @@ The AI Abides...
     override fun getToolCallRequestEventMessage(e: ToolCallRequestEvent): String =
         "[${e.processId}] ${highlight("Lotta moving parts")}: (${e.action?.shortName()}) calling tool ${e.tool}(${e.toolInput})"
 
-    override fun getToolCallSuccessResponseEventMessage(e: ToolCallResponseEvent, resultToShow: String): String =
-        "[${e.processId}] ${highlight("New s&%t has come to light")}: (${e.action?.shortName()}) tool ${e.tool} returned $resultToShow in ${e.runningTime.toMillis()}ms with payload ${e.toolInput}"
-
-    override fun getToolCallFailureResponseEventMessage(e: ToolCallResponseEvent, throwable: Throwable?): String =
-        "[${e.processId}] ${highlight("Do you have to use so many cuss words?")}: (${e.action?.shortName()}) tool ${e.tool} failed $throwable in ${e.runningTime.toMillis()}ms with payload ${e.toolInput}"
-
     override fun getLlmRequestEventMessage(e: LlmRequestEvent<*>): String =
         "[${e.processId}] 🧠 Lotta moving parts: calculating LLM ${e.llm.name} to transform ${e.interaction.id.value} from ${e.outputClass.simpleName} -> ${e.interaction.llm} using ${e.interaction.toolCallbacks.joinToString { it.toolDefinition.name() }}"
-
-    override fun getLlmResponseEventMessage(e: LlmResponseEvent<*>): String =
-        """
-        [${e.processId}] received LLM response ${e.interaction.id.value} of type ${e.response?.let { it::class.java.simpleName } ?: "null"} from ${e.interaction.llm.criteria} in ${e.runningTime.seconds} seconds
-        ${TransformSuccessResponses.random()}
-        """.trimIndent()
 
     override fun getActionExecutionStartMessage(e: ActionExecutionStartEvent): String =
         "[${e.processId}] ${highlight("New s&%t has come to light")}: executing action ${e.action.name}"
