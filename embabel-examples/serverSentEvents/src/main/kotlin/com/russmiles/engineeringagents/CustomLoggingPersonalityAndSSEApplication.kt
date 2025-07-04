@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-@EnableAgentShell
+// @EnableAgentShell
 @EnableAgents(loggingTheme = "lebowski")
-class CustomLoggingPersonality
+class CustomerLoggingPersonalityAndSSEApplication
 
 fun main(args: Array<String>) {
-    runApplication<CustomLoggingPersonality>(*args)
+    runApplication<CustomerLoggingPersonalityAndSSEApplication>(*args)
 }

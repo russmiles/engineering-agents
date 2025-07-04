@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController
 import org.slf4j.Logger
 import org.springframework.web.bind.annotation.PathVariable
 
-//@RestController
+@RestController
 class MagazineController (
     private val loggingPersonality: LoggingPersonality,
     private val autonomy: Autonomy,

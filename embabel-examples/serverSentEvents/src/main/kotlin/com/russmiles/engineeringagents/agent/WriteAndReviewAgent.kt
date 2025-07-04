@@ -86,24 +86,6 @@ class WriteAndReviewAgent(
     @Value("\${reviewWordCount:100}") private val reviewWordCount: Int,
 ) {
 
-    @Action
-    fun craftStory(userInput: UserInput): Story =
-        using(
-            LlmOptions(criteria = Auto)
-                .withTemperature(.9), // Higher temperature for more creative output
-        ).withPromptContributor(StoryTeller)
-            .create(
-                """
-            Craft a short story in $storyWordCount words or less.
-            The story should be engaging and imaginative.
-            Use the user's input as inspiration if possible.
-            If the user has provided a name, include it in the story.
-
-            # User input
-            ${userInput.content}
-        """.trimIndent()
-            )
-
     @AchievesGoal("The user has been greeted")
     @Action
     fun reviewStory(userInput: UserInput, story: Story, context: OperationContext): ReviewedStory {
@@ -131,4 +113,21 @@ class WriteAndReviewAgent(
         )
     }
 
+    @Action
+    fun craftStory(userInput: UserInput): Story =
+        using(
+            LlmOptions(criteria = Auto)
+                .withTemperature(.9), // Higher temperature for more creative output
+        ).withPromptContributor(StoryTeller)
+            .create(
+                """
+            Craft a short story in $storyWordCount words or less.
+            The story should be engaging and imaginative.
+            Use the user's input as inspiration if possible.
+            If the user has provided a name, include it in the story.
+
+            # User input
+            ${userInput.content}
+        """.trimIndent()
+            )
 }
