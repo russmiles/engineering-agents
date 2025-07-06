@@ -10,3 +10,4 @@ Currently this repo contains the following examples:
 
 1) [Developing a custom logging personality for Embabel](./embabel-examples/customLoggingPersonality/)
 2) [Exploring Server Sent Events (SSE)](./embabel-examples/serverSentEvents/)
+3) [Using a local Docker model runner hosted LLM in your Embabel agent](./embabel-examples/localModel/)

@@ -11,11 +11,13 @@
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 ![IntelliJ IDEA](https://img.shields.io/badge/IntelliJIDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white)
 
-# Embabel Example: Using a local model
+# Embabel Example: Using a local model hosted by Docker model Runner
 
 ## Overview
 
-TBD
+A simple example that shows how to specify a loca LLM by name for a specific action in an Embabel agent.
+
+The [accompanying article](https://engineeringagents.substack.com/p/using-a-local-docker-model-runner) is published.
 
 ## Prerequisites
 
@@ -32,7 +34,7 @@ cd scripts
 
 In this example we leverage the simply, template example agent, `WriteAndReviewAgent`.
 
-This agent uses one LLM with a high temperature and creative persona to write a story based on your input,
+This agent uses two LLMs, one local and one hosted by Open AI with a high temperature and creative persona to write a story based on your input,
 then another LLM with a low temperature and different persona to review the story.
 
 When the Embabel shell comes up, you can use the story agent with the `execute`, or shorter `x`, command:
