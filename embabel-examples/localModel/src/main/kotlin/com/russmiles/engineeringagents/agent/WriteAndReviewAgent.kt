@@ -88,7 +88,7 @@ class WriteAndReviewAgent(
 ) {
 
     // Configure the local LLM, selecting simply by name to be specific for now
-    val LOCAL_LLM_BY_NAME: String = "ai/gemma3:latest"
+    val LOCAL_LLM_BY_NAME: String = "ai/gemma3n:latest"
 
     @Action
     fun craftStory(userInput: UserInput): Story =
