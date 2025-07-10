@@ -12,3 +12,4 @@ Currently this repo contains the following examples:
 2) [Exploring Server Sent Events (SSE)](./embabel-examples/serverSentEvents/)
 3) [Using a local Docker model runner hosted LLM in your Embabel agent](./embabel-examples/localModel/)
 4) [Using a local Ollama hosted LLM in your Embabel agent](./embabel-examples/ollamaModel/)
+5) [Selecting LLMs based on roles](./embabel-examples/roleBasedSelection/)

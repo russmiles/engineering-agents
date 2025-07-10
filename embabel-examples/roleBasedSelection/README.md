@@ -11,13 +11,13 @@
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 ![IntelliJ IDEA](https://img.shields.io/badge/IntelliJIDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white)
 
-# Embabel Example: Using a local Ollama model
+# Embabel Example: Using role based LLM selection
 
 ## Overview
 
-A simple example that shows how to specify a local Ollama model by name for a specific action in an Embabel agent.
+A simple example that shows how to specify using an LLM designated by role characteristics for a specific action in an Embabel agent.
 
-The accompanying article has not yet been published.
+The accompanying article is not yet published.
 
 ## Prerequisites
 
