@@ -82,17 +82,19 @@ data class ReviewedStory(
 @ConfigurationProperties("engineering.agents")
 data class EngineeringAgentsProperties(
     private val writerModelRole: String = OpenAiModels.GPT_41_MINI,
-    private val reviewerModelRole: String = OpenAiModels.GPT_41_MINI
+    private val writerModelTemperature: Double = 1.0,
+    private val reviewerModelRole: String = OpenAiModels.GPT_41_MINI,
+    private val reviewerModelTemperature: Double = 1.0,
 ) {
     val writerLlm = LlmOptions(
         criteria = byRole(writerModelRole)
 
-    ).withTemperature(0.9)
+    ).withTemperature(writerModelTemperature)
 
     val reviewerLlm = LlmOptions(
         criteria = byRole(reviewerModelRole)
 
-    ).withTemperature(.9)
+    ).withTemperature(reviewerModelTemperature)
 }
 
 
